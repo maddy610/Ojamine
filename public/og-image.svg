@@ -1,0 +1,12 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#EDE5D3"/>
+  <rect x="24" y="24" width="1152" height="582" stroke="#0E0D0B" stroke-width="4"/>
+  <path d="M 106 72 H 82 C 73.163 72 66 79.163 66 88 V 112 C 66 120.837 73.163 128 82 128 H 106 C 114.837 128 122 120.837 122 112 V 96" stroke="#0E0D0B" stroke-width="6" stroke-linecap="square"/>
+  <rect x="108" y="68" width="20" height="20" rx="2" fill="#E8502A"/>
+  <text x="150" y="108" fill="#0E0D0B" font-family="sans-serif" font-size="32" font-weight="700" letter-spacing="-1">OJAMINE</text>
+  <text x="66" y="290" fill="#0E0D0B" font-family="sans-serif" font-size="84" font-weight="700" letter-spacing="-3">Websites that make</text>
+  <text x="66" y="385" fill="#0E0D0B" font-family="sans-serif" font-size="84" font-weight="700" letter-spacing="-3">people stop scrolling.</text>
+  <rect x="66" y="460" width="240" height="56" fill="#E8502A"/>
+  <text x="96" y="495" fill="#EDE5D3" font-family="sans-serif" font-size="22" font-weight="700">Start a project</text>
+</svg>
+
