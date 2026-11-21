@@ -1,0 +1,32 @@
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Warm Bone Paper Background (#EDE5D3) -->
+  <rect width="1080" height="1080" fill="#EDE5D3"/>
+  
+  <!-- Centered Brand Mark sized for Instagram Circular Crop Safe Zone -->
+  <!-- Rounded-square ink frame (#0E0D0B) with top-right architectural gap -->
+  <path
+    d="M 580 280 H 390 C 329.249 280 280 329.249 280 390 V 690 C 280 750.751 329.249 800 390 800 H 690 C 750.751 800 800 750.751 800 690 V 500"
+    stroke="#0E0D0B"
+    stroke-width="64"
+    stroke-linecap="square"
+    stroke-linejoin="round"
+  />
+  
+  <!-- Subtle blueprint crosshair inside the frame -->
+  <path
+    d="M 420 540 H 560 M 490 470 V 610"
+    stroke="#0E0D0B"
+    stroke-width="20"
+    stroke-opacity="0.28"
+  />
+  
+  <!-- Solid vermilion (#E8502A) square block sitting in the top-right gap -->
+  <rect
+    x="624"
+    y="260"
+    width="196"
+    height="196"
+    rx="26"
+    fill="#E8502A"
+  />
+</svg>

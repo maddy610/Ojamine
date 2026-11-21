@@ -234,7 +234,7 @@ export function StudioScene() {
     const py = store.reducedMotion ? 0 : motionState.pointerY * 0.1;
 
     // 2. Damped Camera
-    const camZOffset = store.isMobile ? 2.2 : 0;
+    const camZOffset = store.isMobile ? 0.6 : 0;
     currentCamPos.current.x = THREE.MathUtils.damp(
       currentCamPos.current.x,
       sampled.cameraPos[0] + px,
@@ -276,13 +276,16 @@ export function StudioScene() {
     stateThree.camera.position.copy(currentCamPos.current);
     stateThree.camera.lookAt(currentLookAt.current);
 
-    // 3. Stage Group Position, Rotation & Scale (strictly fits in its 50% viewport half)
+    // 3. Stage Group Position, Rotation & Scale
+    // On desktop (>=1024px): Left/Right 50% split.
+    // On mobile/portrait (<1024px): Centered horizontally (X=0), placed in upper 40% window, and auto-scaled to fit phone width!
     if (stageGroupRef.current) {
-      const targetStageX = store.isMobile
-        ? sampled.stageOffset[0] * 0.28
-        : sampled.stageOffset[0];
+      const vpW = stateThree.viewport.width;
+      const vpH = stateThree.viewport.height;
+
+      const targetStageX = store.isMobile ? 0.0 : sampled.stageOffset[0];
       const targetStageY = store.isMobile
-        ? sampled.stageOffset[1] - 0.2
+        ? Math.min(1.45, vpH * 0.21)
         : sampled.stageOffset[1];
       const targetStageZ = sampled.stageOffset[2];
 
@@ -309,7 +312,7 @@ export function StudioScene() {
         sampled.stageRot[0] +
         (store.reducedMotion ? 0 : -motionState.pointerY * 0.035);
       const rotY =
-        sampled.stageRot[1] +
+        (store.isMobile ? sampled.stageRot[1] * 0.45 : sampled.stageRot[1]) +
         (store.reducedMotion ? 0 : motionState.pointerX * 0.06);
 
       stageGroupRef.current.rotation.x = THREE.MathUtils.damp(
@@ -331,9 +334,18 @@ export function StudioScene() {
         dt
       );
 
+      // Auto-scale on mobile portrait so the 3.4-unit-wide 3D frame always fits inside the phone's width
+      const mobileFitScale = Math.max(
+        0.38,
+        Math.min(0.76, (vpW * 0.86) / 3.55)
+      );
+      const targetScale = store.isMobile
+        ? mobileFitScale
+        : sampled.stageScale;
+
       const s = THREE.MathUtils.damp(
         stageGroupRef.current.scale.x,
-        sampled.stageScale,
+        targetScale,
         6,
         dt
       );

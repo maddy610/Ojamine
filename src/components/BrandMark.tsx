@@ -66,10 +66,10 @@ export function BrandMark({
 
       {showWordmark && (
         <div className="flex flex-col leading-none">
-          <span className="font-display text-lg font-bold tracking-[-0.04em] text-ink">
+          <span className="font-display text-base sm:text-lg font-bold tracking-[-0.04em] text-ink">
             OJAMINE
           </span>
-          <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-ink-muted mt-0.5">
+          <span className="hidden sm:block font-mono text-[9px] uppercase tracking-[0.18em] text-ink-muted mt-0.5">
             WEB &amp; PORTFOLIO STUDIO
           </span>
         </div>

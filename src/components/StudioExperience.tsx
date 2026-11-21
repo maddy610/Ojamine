@@ -169,24 +169,32 @@ export function StudioExperience() {
 
       <main ref={mainRef} className="relative z-20 pointer-events-none">
         {/* =========================================================
-            SECTION 01: HERO (Left 6 cols Copy / Right 6 cols 3D)
+            SECTION 01: HERO
+            Desktop: Left 6 cols Copy / Right 6 cols 3D
+            Mobile: Top 36vh open for 3D Brand Mark / Bottom Copy
         ========================================================= */}
         <section
           id="hero"
           aria-labelledby="hero-heading"
-          className="relative flex min-h-screen w-full flex-col justify-between px-6 pt-24 pb-10 sm:px-12 pointer-events-none"
+          className="relative flex min-h-screen w-full flex-col justify-between px-4 pt-16 pb-8 sm:px-12 lg:pt-24 lg:pb-10 pointer-events-none"
         >
-          <div className="mx-auto w-full max-w-[1440px] my-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-6">
-                <div className="mb-5 flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.18em] text-ink-muted">
+          {/* Mobile top 3D stage window so the 3D Brand Mark sits cleanly above the headline */}
+          <div
+            aria-hidden="true"
+            className="h-[34vh] sm:h-[38vh] w-full shrink-0 lg:hidden pointer-events-none"
+          />
+
+          <div className="mx-auto w-full max-w-[1440px] lg:my-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+              <div className="lg:col-span-6 bg-paper/90 lg:bg-transparent backdrop-blur-[2px] lg:backdrop-blur-none border border-ink/15 lg:border-0 p-5 sm:p-7 lg:p-0">
+                <div className="mb-3 sm:mb-5 flex items-center gap-2.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.18em] text-ink-muted">
                   <span className="inline-block h-2 w-2 bg-vermilion" />
                   <span>{SITE_CONFIG.copy.hero.eyebrow}</span>
                 </div>
 
                 <h1
                   id="hero-heading"
-                  className="font-display text-[clamp(3.4rem,8.4vw,8.6rem)] font-bold leading-[0.88] tracking-[-0.04em] text-ink"
+                  className="font-display text-[clamp(2.5rem,8.4vw,8.6rem)] font-bold leading-[0.9] tracking-[-0.04em] text-ink"
                 >
                   <span className="block overflow-hidden pb-1">
                     <span className="hero-line-inner block">
@@ -198,7 +206,7 @@ export function StudioExperience() {
                       make people
                     </span>
                   </span>
-                  <span className="block overflow-hidden pb-2">
+                  <span className="block overflow-hidden pb-1.5">
                     <span className="hero-line-inner block">
                       stop{" "}
                       <span className="text-vermilion">scrolling.</span>
@@ -206,18 +214,18 @@ export function StudioExperience() {
                   </span>
                 </h1>
 
-                <p className="mt-7 max-w-lg font-sans text-lg sm:text-xl font-normal leading-snug text-ink-muted">
+                <p className="mt-4 sm:mt-7 max-w-lg font-sans text-base sm:text-xl font-normal leading-snug text-ink-muted">
                   {SITE_CONFIG.copy.hero.sub}
                 </p>
 
-                <div className="mt-8 flex flex-wrap items-center gap-4 pointer-events-auto">
+                <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-4 pointer-events-auto">
                   <button
                     type="button"
                     onClick={() => scrollToBuilderWithPreset()}
-                    className="group inline-flex items-center gap-4 bg-ink px-7 py-4 text-paper transition-colors hover:bg-vermilion"
+                    className="group inline-flex items-center gap-3 sm:gap-4 bg-ink px-5 py-3.5 sm:px-7 sm:py-4 text-paper transition-colors hover:bg-vermilion"
                   >
-                    <span className="inline-block h-3 w-3 bg-vermilion transition-transform duration-300 group-hover:rotate-45 group-hover:bg-paper" />
-                    <span className="font-display text-base sm:text-lg font-bold tracking-[-0.02em]">
+                    <span className="inline-block h-2.5 w-2.5 sm:h-3 sm:w-3 bg-vermilion transition-transform duration-300 group-hover:rotate-45 group-hover:bg-paper" />
+                    <span className="font-display text-sm sm:text-lg font-bold tracking-[-0.02em]">
                       {SITE_CONFIG.copy.hero.cta}
                     </span>
                     <span className="font-mono text-xs opacity-70">↓</span>
@@ -229,7 +237,7 @@ export function StudioExperience() {
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border border-ink/30 bg-paper/80 px-5 py-4 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper"
+                    className="border border-ink/30 bg-paper/80 px-4 py-3.5 sm:px-5 sm:py-4 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper"
                   >
                     WhatsApp Direct ↗
                   </a>
@@ -243,19 +251,25 @@ export function StudioExperience() {
             </div>
           </div>
 
-          <div className="mx-auto mt-8 flex w-full max-w-[1440px] items-center justify-between border-t border-ink/15 pt-4 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+          <div className="mx-auto mt-6 lg:mt-8 flex w-full max-w-[1440px] items-center justify-between border-t border-ink/15 pt-3 sm:pt-4 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-ink-muted">
             <span>{SITE_CONFIG.copy.hero.scrollCue} ↓</span>
           </div>
         </section>
 
         {/* =========================================================
-            SECTION 02: SERVICES (Left 6 cols 3D / Right 6 cols Copy)
+            SECTION 02: SERVICES
         ========================================================= */}
         <section
           id="services"
           aria-labelledby="services-heading"
-          className="relative flex min-h-screen w-full items-center px-6 py-24 sm:px-12 pointer-events-none"
+          className="relative flex min-h-screen w-full flex-col lg:flex-row lg:items-center px-4 py-16 sm:px-12 lg:py-24 pointer-events-none"
         >
+          {/* Mobile top 3D stage window */}
+          <div
+            aria-hidden="true"
+            className="h-[34vh] sm:h-[38vh] w-full shrink-0 lg:hidden pointer-events-none"
+          />
+
           <div className="mx-auto w-full max-w-[1440px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div
@@ -263,15 +277,15 @@ export function StudioExperience() {
                 className="hidden lg:block lg:col-span-6 min-h-[480px] pointer-events-none"
               />
 
-              <div className="lg:col-span-6 pointer-events-auto bg-paper/90 backdrop-blur-[2px] p-6 sm:p-9 border border-ink/15">
-                <div className="flex items-center gap-2 border-b border-ink/15 pb-3.5 mb-6 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+              <div className="lg:col-span-6 pointer-events-auto bg-paper/92 backdrop-blur-[2px] p-5 sm:p-9 border border-ink/15">
+                <div className="flex items-center gap-2 border-b border-ink/15 pb-3 mb-5 sm:mb-6 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-ink-muted">
                   <span className="h-2 w-2 bg-vermilion" />
                   <span>{SITE_CONFIG.copy.services.label}</span>
                 </div>
 
                 <h2
                   id="services-heading"
-                  className="scroll-reveal-group font-display text-5xl sm:text-6xl font-bold leading-[0.9] tracking-[-0.04em] text-ink mb-8"
+                  className="scroll-reveal-group font-display text-4xl sm:text-6xl font-bold leading-[0.9] tracking-[-0.04em] text-ink mb-6 sm:mb-8"
                 >
                   <span className="block overflow-hidden pb-1">
                     <span className="scroll-line-inner block">
@@ -289,9 +303,9 @@ export function StudioExperience() {
                         key={service.id}
                         onMouseEnter={() => studioStore.setHoveredService(idx)}
                         onMouseLeave={() => studioStore.setHoveredService(null)}
-                        className="arch-row group py-6 transition-colors"
+                        className="arch-row group py-5 sm:py-6 transition-colors"
                       >
-                        <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-muted mb-1.5">
+                        <div className="flex items-center gap-2 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-ink-muted mb-1">
                           <span
                             className={`h-2 w-2 transition-colors ${
                               isHovered ? "bg-vermilion" : "bg-ink/25"
@@ -300,12 +314,12 @@ export function StudioExperience() {
                           <span>{service.index}</span>
                         </div>
 
-                        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
+                        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-3 sm:gap-4">
                           <div>
                             <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-[-0.03em] text-ink group-hover:text-vermilion transition-colors">
                               {service.title}
                             </h3>
-                            <p className="mt-1.5 font-sans text-base text-ink-muted max-w-md">
+                            <p className="mt-1 font-sans text-sm sm:text-base text-ink-muted max-w-md">
                               {service.line}
                             </p>
                           </div>
@@ -315,7 +329,7 @@ export function StudioExperience() {
                             onClick={() =>
                               scrollToBuilderWithPreset(service.baseBlockId)
                             }
-                            className="shrink-0 font-mono text-[11px] uppercase tracking-[0.14em] text-ink hover:text-vermilion underline underline-offset-4"
+                            className="self-start sm:self-auto shrink-0 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.14em] text-ink hover:text-vermilion underline underline-offset-4"
                           >
                             Start with this ↓
                           </button>
@@ -330,42 +344,48 @@ export function StudioExperience() {
         </section>
 
         {/* =========================================================
-            SECTION 03: CRAFT (Left 6 cols Copy / Right 6 cols 3D)
+            SECTION 03: CRAFT
         ========================================================= */}
         <section
           id="craft"
           aria-labelledby="craft-heading"
-          className="relative flex min-h-screen w-full items-center px-6 py-24 sm:px-12 pointer-events-none"
+          className="relative flex min-h-screen w-full flex-col lg:flex-row lg:items-center px-4 py-16 sm:px-12 lg:py-24 pointer-events-none"
         >
+          {/* Mobile top 3D stage window */}
+          <div
+            aria-hidden="true"
+            className="h-[34vh] sm:h-[38vh] w-full shrink-0 lg:hidden pointer-events-none"
+          />
+
           <div className="mx-auto w-full max-w-[1440px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-6 pointer-events-auto bg-paper/90 backdrop-blur-[2px] p-6 sm:p-9 border border-ink/15">
-                <div className="flex items-center gap-2 border-b border-ink/15 pb-3.5 mb-6 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+              <div className="lg:col-span-6 pointer-events-auto bg-paper/92 backdrop-blur-[2px] p-5 sm:p-9 border border-ink/15">
+                <div className="flex items-center gap-2 border-b border-ink/15 pb-3 mb-5 sm:mb-6 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-ink-muted">
                   <span className="h-2 w-2 bg-vermilion" />
                   <span>{SITE_CONFIG.copy.craft.label}</span>
                 </div>
 
                 <h2
                   id="craft-heading"
-                  className="scroll-reveal-group font-display text-[clamp(2.8rem,5.8vw,5.6rem)] font-bold leading-[0.9] tracking-[-0.04em] text-ink mb-6"
+                  className="scroll-reveal-group font-display text-[clamp(2.3rem,5.8vw,5.6rem)] font-bold leading-[0.9] tracking-[-0.04em] text-ink mb-5 sm:mb-6"
                 >
-                  <span className="block overflow-hidden pb-2">
+                  <span className="block overflow-hidden pb-1.5">
                     <span className="scroll-line-inner block">
                       {SITE_CONFIG.copy.craft.heading}
                     </span>
                   </span>
                 </h2>
 
-                <p className="font-sans text-lg sm:text-xl leading-relaxed text-ink-muted max-w-xl mb-8">
+                <p className="font-sans text-base sm:text-xl leading-relaxed text-ink-muted max-w-xl mb-6 sm:mb-8">
                   {SITE_CONFIG.copy.craft.caption}
                 </p>
 
-                <div className="flex flex-wrap items-center gap-4 border-t border-ink/15 pt-6">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4 border-t border-ink/15 pt-5 sm:pt-6">
                   <a
                     href={getWhatsAppUrl(walkthroughMessage)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 bg-vermilion px-6 py-4 font-display text-sm sm:text-base font-bold tracking-tight text-paper transition-colors hover:bg-ink"
+                    className="inline-flex items-center gap-3 bg-vermilion px-5 py-3.5 sm:px-6 sm:py-4 font-display text-sm sm:text-base font-bold tracking-tight text-paper transition-colors hover:bg-ink"
                   >
                     <span className="h-2.5 w-2.5 bg-paper" />
                     <span>{SITE_CONFIG.copy.craft.actionLabel} ↗</span>
@@ -376,7 +396,7 @@ export function StudioExperience() {
                       "Private Walkthrough Request — Ojamine",
                       walkthroughMessage
                     )}
-                    className="border border-ink/30 bg-paper px-5 py-4 font-mono text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper"
+                    className="border border-ink/30 bg-paper px-4 py-3.5 sm:px-5 sm:py-4 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper"
                   >
                     Ask via Email ↗
                   </a>
@@ -392,13 +412,19 @@ export function StudioExperience() {
         </section>
 
         {/* =========================================================
-            SECTION 04: PROCESS (Left 6 cols 3D / Right 6 cols Copy)
+            SECTION 04: PROCESS
         ========================================================= */}
         <section
           id="process"
           aria-labelledby="process-heading"
-          className="relative flex min-h-screen w-full items-center px-6 py-24 sm:px-12 pointer-events-none"
+          className="relative flex min-h-screen w-full flex-col lg:flex-row lg:items-center px-4 py-16 sm:px-12 lg:py-24 pointer-events-none"
         >
+          {/* Mobile top 3D stage window */}
+          <div
+            aria-hidden="true"
+            className="h-[34vh] sm:h-[38vh] w-full shrink-0 lg:hidden pointer-events-none"
+          />
+
           <div className="mx-auto w-full max-w-[1440px]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div
@@ -406,15 +432,15 @@ export function StudioExperience() {
                 className="hidden lg:block lg:col-span-6 min-h-[480px] pointer-events-none"
               />
 
-              <div className="lg:col-span-6 pointer-events-auto bg-paper/90 backdrop-blur-[2px] p-6 sm:p-9 border border-ink/15">
-                <div className="flex items-center gap-2 border-b border-ink/15 pb-3.5 mb-6 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+              <div className="lg:col-span-6 pointer-events-auto bg-paper/92 backdrop-blur-[2px] p-5 sm:p-9 border border-ink/15">
+                <div className="flex items-center gap-2 border-b border-ink/15 pb-3 mb-5 sm:mb-6 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-ink-muted">
                   <span className="h-2 w-2 bg-vermilion" />
                   <span>{SITE_CONFIG.copy.process.label}</span>
                 </div>
 
                 <h2
                   id="process-heading"
-                  className="scroll-reveal-group font-display text-5xl sm:text-6xl font-bold leading-[0.9] tracking-[-0.04em] text-ink mb-8"
+                  className="scroll-reveal-group font-display text-4xl sm:text-6xl font-bold leading-[0.9] tracking-[-0.04em] text-ink mb-6 sm:mb-8"
                 >
                   <span className="block overflow-hidden pb-1">
                     <span className="scroll-line-inner block">
@@ -431,15 +457,15 @@ export function StudioExperience() {
                         key={step.id}
                         onMouseEnter={() => studioStore.setHoveredProcess(idx)}
                         onMouseLeave={() => studioStore.setHoveredProcess(null)}
-                        className={`arch-row border-r border-b border-ink/15 p-5 sm:p-6 transition-colors ${
+                        className={`arch-row border-r border-b border-ink/15 p-4 sm:p-6 transition-colors ${
                           isHovered ? "bg-paper-deep/60" : "bg-transparent"
                         }`}
                       >
-                        <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-vermilion font-semibold mb-3">
+                        <div className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-vermilion font-semibold mb-2">
                           {step.index}
                         </div>
 
-                        <h3 className="font-display text-3xl sm:text-4xl font-bold tracking-[-0.04em] text-ink mb-2">
+                        <h3 className="font-display text-2xl sm:text-4xl font-bold tracking-[-0.04em] text-ink mb-1.5">
                           {step.word}
                         </h3>
 

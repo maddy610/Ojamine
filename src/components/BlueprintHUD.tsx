@@ -37,7 +37,7 @@ export function BlueprintHUD() {
 
       {/* Full-width Top Navigation Bar (prevents scrolling text from showing above/behind the header) */}
       <header className="fixed top-0 left-0 right-0 z-40 border-b border-ink/15 bg-paper/95 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-3.5 sm:px-12">
+        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-4 py-2.5 sm:px-12 sm:py-3.5">
           <a
             href="#hero"
             onClick={(e) => {
@@ -47,12 +47,12 @@ export function BlueprintHUD() {
             aria-label="Ojamine home"
             className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-vermilion"
           >
-            <BrandMark size={28} />
+            <BrandMark size={26} />
           </a>
 
           <nav
             aria-label="Page sections"
-            className="flex items-center gap-1 sm:gap-2"
+            className="flex items-center gap-0.5 sm:gap-2"
           >
             {NAV_CHAPTERS.map((chap, idx) => {
               const isActive = activeChapterIndex === idx;
@@ -61,7 +61,7 @@ export function BlueprintHUD() {
                   key={chap.id}
                   type="button"
                   onClick={() => scrollToSection(chap.id)}
-                  className={`px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors ${
+                  className={`px-2 py-1 sm:px-2.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.12em] sm:tracking-[0.14em] transition-colors ${
                     isActive
                       ? "bg-ink text-paper font-medium"
                       : "text-ink-muted hover:text-ink"
@@ -69,12 +69,14 @@ export function BlueprintHUD() {
                 >
                   <span
                     className={
-                      isActive ? "text-vermilion mr-1" : "text-ink/40 mr-1"
+                      isActive
+                        ? "text-vermilion sm:mr-1"
+                        : "text-ink/50 sm:mr-1"
                     }
                   >
                     {chap.num}
                   </span>
-                  <span className="hidden sm:inline">{chap.name}</span>
+                  <span className="hidden md:inline">{chap.name}</span>
                 </button>
               );
             })}
